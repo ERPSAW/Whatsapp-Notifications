@@ -3,7 +3,7 @@ from . import __version__ as app_version
 app_name = "whatsapp_notifications"
 app_title = "Whatsapp Notifications"
 app_publisher = "akhilaminc"
-app_description = "whatsapp notification integration"
+app_description = "whatsapp notification integration with erpnext"
 app_email = "raaj@akhilaminc.com"
 app_license = "MIT"
 
@@ -162,27 +162,39 @@ app_license = "MIT"
 
 # User Data Protection
 # --------------------
-
-# user_data_fields = [
-#	{
-#		"doctype": "{doctype_1}",
-#		"filter_by": "{filter_by}",
-#		"redact_fields": ["{field_1}", "{field_2}"],
-#		"partial": 1,
-#	},
-#	{
-#		"doctype": "{doctype_2}",
-#		"filter_by": "{filter_by}",
-#		"partial": 1,
-#	},
-#	{
-#		"doctype": "{doctype_3}",
-#		"strict": False,
-#	},
-#	{
-#		"doctype": "{doctype_4}"
-#	}
-# ]
+fixtures = [
+    {"dt": "Custom Field", "filters": [
+        [
+            "name", "in", ["Contact Phone-is_whatsapp_no_ak","Contact-items","Contact-sub_group"
+            ]
+        ]
+    ]},
+	{"dt": "Role", "filters": [
+        [
+            "name", "in", ["Whatsapp API Caller"]
+        ]
+    ]}
+]
+user_data_fields = [
+	{
+		"doctype": "{doctype_1}",
+		"filter_by": "{filter_by}",
+		"redact_fields": ["{field_1}", "{field_2}"],
+		"partial": 1,
+	},
+	{
+		"doctype": "{doctype_2}",
+		"filter_by": "{filter_by}",
+		"partial": 1,
+	},
+	{
+		"doctype": "{doctype_3}",
+		"strict": False,
+	},
+	{
+		"doctype": "{doctype_4}"
+	}
+]
 
 # Authentication and authorization
 # --------------------------------
